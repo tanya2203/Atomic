@@ -17,7 +17,8 @@ cout<<name<<endl;
 int main(){
 
 
-string name = "Tanya";
+string name ;
+cin>>name;
 reverse( name);
 
 
