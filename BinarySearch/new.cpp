@@ -45,9 +45,11 @@ int main()
     int arr[8] = {7, 8, 17, 7, 1, 3, 5, 6};
 
     int ans = PivotElement(arr, 8);
+    // iknfink
 
     cout << ans;
     // cout<<ans;
+    // nejnf
 
     return 0;
 }
