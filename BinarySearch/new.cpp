@@ -47,6 +47,7 @@ int main()
     int ans = PivotElement(arr, 8);
 
     cout << ans;
+    // cout<<ans;
 
     return 0;
 }
