@@ -22,6 +22,18 @@ void InsertAtHead(node *&head, int data)
     newnode->next = head;
     head = newnode;
 }
+void InsertAtTail(node *&tail, int data)
+{
+    // create new node
+    node *newnode = new node(data);
+
+    while (tail->next != NULL)
+    {
+        tail = tail->next;
+    }
+    tail->next = newnode;
+    tail = tail->next;
+}
 void print(node *head)
 {
     node *temp = head;
@@ -38,9 +50,14 @@ int main()
     // head->10
     node *n1 = new node(10);
     node *head = n1;
+    node *tail = head;
     InsertAtHead(head, 20);
 
     InsertAtHead(head, 40);
+
+    print(head);
+    cout << "insert at tail" << endl;
+    InsertAtTail(tail, 90);
     print(head);
     return 0;
 }
