@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stack>
 using namespace std;
 
 class Node
@@ -48,6 +49,57 @@ void postOrderTraversal(Node *root)
     postOrderTraversal(root->right);
     cout << root->data << " ";
 }
+
+// iterative traversal
+void PreOrderIterative(Node *root)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+    stack<Node *> s;
+    s.push(root);
+
+    while (!s.empty())
+    {
+        root = s.top();
+        cout << root->data;
+        s.pop();
+        if (root->right)
+        {
+            s.push(root->right);
+        }
+        if (root->left)
+        {
+            s.push(root->left);
+        }
+    }
+}
+// iterative inorder
+void InOrderIterative(Node *root)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+    stack<Node *> s;
+
+    while (!s.empty() || root != NULL)
+    {
+        while (root != NULL)
+        {
+            s.push(root);
+            root = root->left;
+        }
+
+        root = s.top();
+        s.pop();
+
+        cout << root->data << " "; // Print the data of the current node
+
+        root = root->right;
+    }
+}
 int main()
 {
     //     50
@@ -70,6 +122,9 @@ int main()
     cout << "postOrderTraversal" << endl;
     postOrderTraversal(root);
     cout << endl;
+    PreOrderIterative(root);
+    cout << "iterative inorder" << endl;
+    InOrderIterative(root);
 
     // cout << "Inorder traversal : rooot value ";
 
