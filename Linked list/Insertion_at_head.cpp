@@ -12,6 +12,21 @@ public:
         this->next = NULL;
     }
 };
+void InsertAtPos(node *&head, int pos, int data)
+{
+    int cnt = 0;
+
+    node *temp = head;
+    while (cnt < pos)
+    {
+
+        temp = temp->next;
+        cnt++;
+    }
+    node *newnode = new node(data);
+    newnode->next = temp->next;
+    temp->next = newnode;
+}
 
 void InsertAtHead(node *&head, int data)
 {
@@ -59,5 +74,9 @@ int main()
     cout << "insert at tail" << endl;
     InsertAtTail(tail, 90);
     print(head);
+    cout << "insert at pos" << endl;
+    InsertAtPos(head, 2, 67);
+    print(head);
+   
     return 0;
 }
